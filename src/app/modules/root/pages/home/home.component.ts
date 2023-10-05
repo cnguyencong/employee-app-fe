@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UpdateFormValue } from '@ngxs/form-plugin';
+import { Navigate } from '@ngxs/router-plugin';
 import { Store } from '@ngxs/store';
 
 @Component({
@@ -30,5 +31,9 @@ export class HomeComponent implements OnInit {
         path: 'novels.newNovelForm',
       })
     );
+  }
+
+  goto404() {
+    this.store.dispatch(new Navigate(['/404']))
   }
 }
