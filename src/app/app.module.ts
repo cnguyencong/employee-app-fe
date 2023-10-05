@@ -34,6 +34,7 @@ import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NovelsState } from '@modules/root/store/states/form';
 import { HomeComponent } from '@modules/root/pages/home/home.component';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -70,7 +71,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     NgxsFormPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
-      key: 'novels',
+      key: 'novels', // for testing purposes
     }),
     //     // for HttpClient use:
     LoadingBarHttpClientModule,
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoadingBarRouterModule,
     //     // for Core use:
     LoadingBarModule,
+    NgxsRouterPluginModule.forRoot(),
   ],
   providers: [
     ...httpInterceptorProviders,
