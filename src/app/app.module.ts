@@ -35,6 +35,7 @@ import { NovelsState } from '@modules/root/store/states/form';
 import { HomeComponent } from '@modules/root/pages/home/home.component';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+import { NgxsWebsocketPluginModule } from '@ngxs/websocket-plugin';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -73,13 +74,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgxsStoragePluginModule.forRoot({
       key: 'novels', // for testing purposes
     }),
+    NgxsRouterPluginModule.forRoot(),
+    NgxsRouterPluginModule.forRoot(),
+    NgxsWebsocketPluginModule.forRoot({
+      url: 'ws://localhost:4200',
+    }),
     //     // for HttpClient use:
     LoadingBarHttpClientModule,
     //     // for Router use:
     LoadingBarRouterModule,
     //     // for Core use:
     LoadingBarModule,
-    NgxsRouterPluginModule.forRoot(),
   ],
   providers: [
     ...httpInterceptorProviders,
