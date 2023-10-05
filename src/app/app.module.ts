@@ -5,7 +5,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from "@shared/shared.module";
+import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
@@ -33,18 +33,14 @@ import { httpInterceptorProviders } from '@core/services/apis/interceptors';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 import { NovelsState } from '@modules/root/store/states/form';
 import { HomeComponent } from '@modules/root/pages/home/home.component';
-
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, LoginComponent, HomeComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -60,11 +56,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
     }),
     NgxsModule.forRoot([TodoState, NovelsState], {
-      developmentMode: !APP_CONFIG.production
+      developmentMode: !APP_CONFIG.production,
     }),
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: APP_CONFIG.production,
@@ -73,19 +69,21 @@ export function HttpLoaderFactory(http: HttpClient) {
       disabled: APP_CONFIG.production,
     }),
     NgxsFormPluginModule.forRoot(),
-//     // for HttpClient use:
+    NgxsStoragePluginModule.forRoot({
+      key: 'novels',
+    }),
+    //     // for HttpClient use:
     LoadingBarHttpClientModule,
-//     // for Router use:
+    //     // for Router use:
     LoadingBarRouterModule,
-//     // for Core use:
+    //     // for Core use:
     LoadingBarModule,
   ],
   providers: [
     ...httpInterceptorProviders,
     { provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG },
-    CookieService
+    CookieService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}
