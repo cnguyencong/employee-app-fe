@@ -1,0 +1,9 @@
+[submodule "src/app/modules/vue"]
+	path = src/app/modules/vue
+	url = git@github.com:cnguyencong/employee-app-vue.git
+[submodule "src/app/modules/react"]
+	path = src/app/modules/react
+	url = git@github.com:cnguyencong/employee-app-react.git
+[submodule "src/app/modules/auth"]
+	path = src/app/modules/auth
+	url = git@github.com:cnguyencong/employee-app-auth.git
