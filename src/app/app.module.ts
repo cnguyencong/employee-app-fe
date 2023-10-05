@@ -30,6 +30,7 @@ import { TodoState } from '@modules/root/store/states/todo';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { httpInterceptorProviders } from '@core/services/apis/interceptors';
+import { NgxsFormPluginModule } from '@ngxs/form-plugin';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -68,7 +69,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgxsLoggerPluginModule.forRoot({
       disabled: APP_CONFIG.production,
     }),
-    
+    NgxsFormPluginModule.forRoot(),
 //     // for HttpClient use:
     LoadingBarHttpClientModule,
 //     // for Router use:
