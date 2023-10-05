@@ -6,4 +6,6 @@ export const ACTION_TYPE = {
     TODO_EDIT: '[Todo] Edit',
     TODO_FETCH_ALL: '[Todo] Fetch All',
     TODO_DELETE: '[Todo] Delete',
+
+    CHAT_ADD_MESSAGE: '[Chat] Add message',
 }

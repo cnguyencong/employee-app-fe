@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UpdateFormValue } from '@ngxs/form-plugin';
 import { Navigate } from '@ngxs/router-plugin';
 import { Store } from '@ngxs/store';
+import { SendWebSocketMessage } from '@ngxs/websocket-plugin';
 
 @Component({
   selector: 'app-home',
@@ -35,5 +36,15 @@ export class HomeComponent implements OnInit {
 
   goto404() {
     this.store.dispatch(new Navigate(['/404']))
+  }
+
+  sendMessage(from: string, message: string) {
+    const event = new SendWebSocketMessage({
+      type: 'message',
+      from,
+      message
+    });
+
+    this.store.dispatch(event);
   }
 }
