@@ -1,0 +1,1 @@
+declare module 'employee-app-auth/Module';
