@@ -31,6 +31,8 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { httpInterceptorProviders } from '@core/services/apis/interceptors';
 import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+import { NovelsState } from '@modules/root/store/states/form';
+import { HomeComponent } from '@modules/root/pages/home/home.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       },
     }),
-    NgxsModule.forRoot([TodoState], {
+    NgxsModule.forRoot([TodoState, NovelsState], {
       developmentMode: !APP_CONFIG.production
     }),
     NgxsReduxDevtoolsPluginModule.forRoot({
