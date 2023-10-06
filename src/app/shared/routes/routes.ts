@@ -10,6 +10,10 @@ export const content: Routes = [
     path: "single-page",
     loadChildren: () => import("../../modules/root/pages/single-page/single-page.module").then((m) => m.SinglePageModule),
   },
+  {
+    path: "profile",
+    loadChildren: () => import("../../modules/root/pages/profile/profile.module").then((m) => m.ProfileModule)
+  }
   // {
   //   path: "auth",
   //   loadChildren: () => import('employee-app-auth/Module').then(m => m.AuthModule),
