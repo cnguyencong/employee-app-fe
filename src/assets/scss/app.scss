@@ -42,6 +42,10 @@
 @import 'swiper/scss';
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
+
+/* Date-time picker */
+@import "@danielmoncada/angular-datetime-picker/assets/style/picker.min.css";
+
 /* ---------------------
 	*** Theme Scss ***
 -----------------------*/

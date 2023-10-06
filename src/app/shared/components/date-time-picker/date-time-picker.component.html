@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label>{{props?.label}}</label>
+  <div class="input-group date" id="dt-local" data-target-input="nearest">
+    <input
+      class="form-control"
+      [owlDateTime]="dt1"
+      id="{{props?.id}}"
+      name="{{props?.name}}"
+      [owlDateTimeTrigger]="dt1"
+      placeholder="{{props?.placeholder}}"
+      [defaultValue]="props?.value || ''"
+      [min]="props?.min"
+      [max]="props.max"
+      (dateTimeChange)="writeValue($event)"
+      [ngClass]="{ 'is-invalid': basedFormControl?.invalid && basedFormControl?.touched }"
+    >
+    <owl-date-time #dt1></owl-date-time>
+    <div class="invalid-feedback" *ngIf="errors">{{errors}}</div>
+</div>
+</div>

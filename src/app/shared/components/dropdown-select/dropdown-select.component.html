@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col form-group">
+    <div class="mb-3" [ngClass]="{ 'is-invalid': basedFormControl?.invalid && basedFormControl?.touched }">
+      <label *ngIf="props?.label" for="{{props?.id}}">{{props?.label}}</label>
+      <ng-select
+        [items]="props?.items"
+        id="{{props?.id}}"
+        [multiple]="props?.multiple || false"
+        placeholder="{{props?.placeholder}}"
+        (change)="writeValue($event)"
+        bindLabel="{{props?.bindLabel}}"
+        bindValue="{{props?.bindValue}}"
+      >
+      </ng-select>
+      <div class="invalid-feedback" *ngIf="errors">{{errors}}</div>
+    </div>
+  </div>
+</div>
