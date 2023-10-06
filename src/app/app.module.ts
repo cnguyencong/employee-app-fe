@@ -62,12 +62,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgxsModule.forRoot([TodoState], {
       developmentMode: !APP_CONFIG.production
     }),
-    NgxsReduxDevtoolsPluginModule.forRoot({
-      disabled: APP_CONFIG.production,
-    }),
-    NgxsLoggerPluginModule.forRoot({
-      disabled: APP_CONFIG.production,
-    }),
+    // NgxsReduxDevtoolsPluginModule.forRoot({
+    //   disabled: APP_CONFIG.production,
+    // }),
+    // NgxsLoggerPluginModule.forRoot({
+    //   disabled: APP_CONFIG.production,
+    // }),
     
 //     // for HttpClient use:
     LoadingBarHttpClientModule,
