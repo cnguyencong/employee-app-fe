@@ -27,10 +27,11 @@ const routes: Routes = [
     component: FullComponent,
     children: full
   },
-  // {
-  //   path: 'auth',
-  //   loadChildren: () => import('employee-app-auth/Module').then(m => m.AuthModule)
-  // },
+  {
+    path: 'auth',
+    component: ContentComponent,
+    loadChildren: () => import('employee-app-auth/Module').then(m => m.AuthModule)
+  },
   // {
   //   matcher: startsWith('react'),
   //   component: WebComponentWrapper,
