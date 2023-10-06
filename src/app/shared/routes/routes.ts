@@ -38,3 +38,10 @@ export const content: Routes = [
   //   } as WebComponentWrapperOptions,
   // },
 ];
+
+export const auth: Routes = [
+  {
+    path: "authentication",
+    loadChildren: () => import("../../modules/root/pages/auth/auth.module").then((m) => m.AuthModule),
+  },
+]
