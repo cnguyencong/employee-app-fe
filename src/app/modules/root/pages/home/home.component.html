@@ -1,1 +1,15 @@
 <h1>Welcome!</h1>
+
+<form
+  [formGroup]="newNovelForm"
+  (ngSubmit)="onSubmit(newNovelForm)"
+  ngxsForm="novels.newNovelForm"
+  [ngxsFormDebounce]="500"
+  [ngxsFormClearOnDestroy]="true"
+>
+  <input type="text" formControlName="novelName" />
+  <button type="submit" (click)="onReset()">Reset</button>
+</form>
+
+<button (click)="goto404()">Go to 404</button>
+<button (click)="sendMessage('client', 'New message')">sendMessage</button>
