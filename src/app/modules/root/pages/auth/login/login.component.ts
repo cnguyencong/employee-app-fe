@@ -1,41 +1,39 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, Validators, FormGroup } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthAction } from '@modules/root/store/actions/auth';
+import { Store } from '@ngxs/store';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  public newUser = false;
-  // public user: firebase.User;
   public loginForm: FormGroup;
-  public show: boolean = false
-  public errorMessage: any;
+  public show: boolean = false;
 
-  constructor(private fb: FormBuilder, public router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    public router: Router,
+    private store: Store
+  ) {
     this.loginForm = this.fb.group({
-      email: ["Test@gmail.com", [Validators.required, Validators.email]],
-      password: ["test123", Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
     });
   }
 
   ngOnInit() {}
 
-  login() {
-    if (this.loginForm.value["email"] == "Test@gmail.com" && this.loginForm.value["password"] == "test123") {
-      let user = {
-        email: "Test@gmail.com",
-        password: "test123",
-        name: "test user",
-      };
-      localStorage.setItem("user", JSON.stringify(user));
-      this.router.navigate(["/dashboard/default"]);
-    }
+  showPassword() {
+    this.show = !this.show;
   }
 
-  showPassword(){
-    this.show = !this.show
+  login() {
+    const { status } = this.loginForm;
+    if (['VALID'].includes(status)) {
+      this.store.dispatch(new AuthAction.LoginRequest());
+    }
   }
 }

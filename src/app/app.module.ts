@@ -36,13 +36,15 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsWebsocketPluginModule } from '@ngxs/websocket-plugin';
 import { MessagesState } from '@modules/root/store/states/message';
+import { AuthState } from '@modules/root/store/states/auth'
+import { LoginComponent } from '@modules/root/pages/auth/login/login.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -61,7 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    NgxsModule.forRoot([TodoState, NovelsState, MessagesState], {
+    NgxsModule.forRoot([TodoState, NovelsState, MessagesState, AuthState], {
       developmentMode: !APP_CONFIG.production,
     }),
     NgxsReduxDevtoolsPluginModule.forRoot({
@@ -72,9 +74,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     NgxsFormPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
-      key: 'novels', // for testing purposes
+      key: 'auth.accessToken',
     }),
-    NgxsRouterPluginModule.forRoot(),
     NgxsRouterPluginModule.forRoot(),
     NgxsWebsocketPluginModule.forRoot({
       url: 'ws://localhost:4200',

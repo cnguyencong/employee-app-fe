@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { UserService } from '@shared/services/user/user.service';
+import { Store } from '@ngxs/store';
+import { AuthState } from '@modules/root/store/states/auth'
 
 @Injectable({providedIn: 'root'})
 export class NotLoginGuard implements CanActivate {
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private router: Router, private store: Store) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.userService.getIsLoggedIn()) {
-      return true;
+    const isLoggedIn = this.store.selectSnapshot(AuthState.isLoggedIn);
+    if (isLoggedIn) {
+      this.router.navigateByUrl('/');
+      return false;
     }
-
-    this.router.navigate(['/']);
-    return false;
+    return true;
   }
 }
