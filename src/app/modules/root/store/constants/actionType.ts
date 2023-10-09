@@ -12,4 +12,8 @@ export const ACTION_TYPE = {
     AUTH_LOGIN_REQUEST: '[Auth] Login Request',
     AUTH_LOGIN_SUCCESS: '[Auth] Login Success',
     AUTH_LOGIN_FAILURE: '[Auth] Login Failure',
+
+    PROFILE_FETCH_PROFILE_DETAIL_REQUEST: '[Profile] Fetch Profile Detail Request',
+    PROFILE_FETCH_PROFILE_DETAIL_SUCCESS: '[Profile] Fetch Profile Detail Success',
+    PROFILE_FETCH_PROFILE_DETAIL_FAILURE: '[Profile] Fetch Profile Detail Failure',
 }
