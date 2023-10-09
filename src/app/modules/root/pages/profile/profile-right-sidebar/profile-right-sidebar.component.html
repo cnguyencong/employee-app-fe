@@ -1,0 +1,31 @@
+<div class="card profile-card">
+  <div class="card-header">
+    <div class="profile">
+      <div class="avatar" [ngClass]="{'empty' : !avatar}">
+        <i class="icofont icofont-ui-image empty-img-icon"></i>
+        <img alt="avatar" [src]="avatar" />
+      </div>
+      <div class="icon-wrapper pointer">
+        <label for="upload-avatar"><i class="icofont icofont-pencil-alt-5"></i></label>
+        <input type="file" class="d-none" name="avatar" id="upload-avatar" (change)="uploadAvatar($event)">
+      </div>
+    </div>
+  </div>
+  <div class="card-body text-center">
+    <div class="qr-code-wrapper">
+      <figure itemprop="associatedMedia">
+        <a href="javascript:void(0)" itemprop="contentUrl">
+          <img [src]="qrCode" class="img-fluid" />
+        </a>
+      </figure>
+      <div class="icon-wrapper d-flex">
+        <app-feather-icons [icon]="'copy'" (click)="copyMessage()" class="pointer"></app-feather-icons>
+        <app-feather-icons [icon]="'download'" class="pointer"></app-feather-icons>
+      </div>
+    </div>
+    <div class="mt-5">
+      <label for="upload-cv" class="btn btn-primary" type="button">Update CV</label>
+      <input type="file" class="d-none" name="cv" id="upload-cv" (change)="uploadCV($event)">
+    </div>
+  </div>
+</div>
