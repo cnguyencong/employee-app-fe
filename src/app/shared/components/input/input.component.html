@@ -1,0 +1,53 @@
+<div [ngClass]="props?.size">
+  <div class="form-group">
+      <ng-container [ngSwitch]="props?.type">
+        <ng-container *ngSwitchCase="'textarea'">
+          <label *ngIf="props?.label">{{props?.label}}</label>
+          <textarea
+            [ngClass]="{ 'is-invalid': basedFormControl?.invalid && basedFormControl?.touched }"
+            id="{{props?.id || props?.name}}"
+            name="{{props?.name}}"
+            [formControl]="inputControl"
+            placeholder="{{props?.placeholder}}"
+          >{{props?.value}}</textarea>
+        </ng-container>
+        <ng-container *ngSwitchCase="'checkbox'">
+          <div class="form-check checkbox checkbox-primary mb-0">
+            <input
+              [ngClass]="{ 'is-invalid': basedFormControl?.invalid && basedFormControl?.touched }"
+              class="form-check-input"
+              id="{{props?.id || props?.name}}"
+              name="{{props?.name}}"
+              type="checkbox"
+              value="{{props?.value}}"
+            />
+            <label class="form-check-label" for="{{props?.id || props?.name}}">{{props?.label}}</label>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'radio'">
+          <div class="radio radio-primary">
+            <input class="form-check-input"
+              [ngClass]="{ 'is-invalid': basedFormControl?.invalid && basedFormControl?.touched }"
+              id="{{props?.id || props?.name}}"
+              type="radio"
+              name="{{props?.name}}"
+              value="{{props?.value}}"
+            />
+            <label class="form-check-label" for="{{props?.id || props?.name}}">{{props?.label}}</label>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchDefault >
+          <label *ngIf="props?.label">{{props?.label}}</label>
+          <input class="form-control"
+            [ngClass]="{ 'is-invalid': basedFormControl?.invalid && basedFormControl?.touched }"
+            id="{{props?.id || props?.name}}"
+            type="{{props?.type}}"
+            name="{{props?.name}}"
+            [formControl]="inputControl"
+            placeholder="{{props?.placeholder}}"
+          />
+        </ng-container>
+      </ng-container>
+      <div class="invalid-feedback" *ngIf="errors">{{errors}}</div>
+  </div>
+</div>

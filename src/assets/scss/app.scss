@@ -42,6 +42,14 @@
 @import 'swiper/scss';
 @import 'swiper/scss/navigation';
 @import 'swiper/scss/pagination';
+
+/* Date-time picker */
+@import "@danielmoncada/angular-datetime-picker/assets/style/picker.min.css";
+
+/* ngx-datatable */
+@import '/node_modules/@swimlane/ngx-datatable/index.css';
+@import '/node_modules/@swimlane/ngx-datatable/themes/material.scss';
+@import '/node_modules/@swimlane/ngx-datatable/assets/icons.css';
 /* ---------------------
 	*** Theme Scss ***
 -----------------------*/
