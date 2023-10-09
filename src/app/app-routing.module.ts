@@ -9,6 +9,7 @@ import { ContentComponent } from "./shared/components/layout/content/content.com
 import { FullComponent } from "./shared/components/layout/full/full.component";
 import { full } from "./shared/routes/full.routes";
 import { auth, content } from "./shared/routes/routes";
+import { NotLoginGuard } from '@core/routes/guards/not-login.guard'
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
   },
   {
     path: "",
-    children: auth
+    children: auth,
+    canActivate: [NotLoginGuard]
   },
   {
     path: "",

@@ -7,5 +7,9 @@ export const ACTION_TYPE = {
     TODO_FETCH_ALL: '[Todo] Fetch All',
     TODO_DELETE: '[Todo] Delete',
 
-    CHAT_ADD_MESSAGE: '[Chat] Add message',
+    CHAT_ADD_MESSAGE: '[Chat] Add message', // For testing purposes
+
+    AUTH_LOGIN_REQUEST: '[Auth] Login Request',
+    AUTH_LOGIN_SUCCESS: '[Auth] Login Success',
+    AUTH_LOGIN_FAILURE: '[Auth] Login Failure',
 }
