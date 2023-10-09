@@ -1,9 +1,9 @@
-import { Action } from "@core/types/store";
+import { TodoAddRequest } from '@core/types/models/request/todo';
+import { ServerError } from '@core/types/models/response/serverError';
+import { TodoAddResponse } from '@core/types/models/response/todo';
 
-type Todo = {
-    todo: any;
-}
-
-export interface TodoActionModel extends Action {
-    payload: Todo;
+export interface TodoActionModel {
+  payload: TodoAddRequest;
+  data: TodoAddResponse;
+  error: ServerError
 }
