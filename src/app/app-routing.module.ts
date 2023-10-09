@@ -14,25 +14,24 @@ import { NotLoginGuard } from '@core/routes/guards/not-login.guard'
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "simple-page/first-page",
+    redirectTo: "profile/detail",
     pathMatch: "full",
   },
   {
     path: "",
     component: ContentComponent,
     children: content
-
   },
   {
     path: "",
     children: auth,
     canActivate: [NotLoginGuard]
   },
-  {
-    path: "",
-    component: FullComponent,
-    children: full
-  },
+  // {
+  //   path: "",
+  //   component: FullComponent,
+  //   children: full
+  // },
   {
     path: '**',
     component: NotFoundComponent,

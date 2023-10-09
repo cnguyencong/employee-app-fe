@@ -83,19 +83,19 @@ export class NavService implements OnDestroy {
     {
       headTitle1: "Pages",
     },
-    {
-      title: "Simple Page",
-      icon: "home",
-      type: "sub",
-      badgeType: "light-primary",
-      badgeValue: "2",
-      active: true,
-      children: [
-        { path: "/simple-page/first-page", title: "First Page", type: "link" },
-        { path: "/simple-page/second-page", title: "Second Page", type: "link" },
-      ],
-    },
-    { path: "/single-page", icon: "search", title: "Single Page", type: "link", bookmark: true },
+    // {
+    //   title: "Simple Page",
+    //   icon: "home",
+    //   type: "sub",
+    //   badgeType: "light-primary",
+    //   badgeValue: "2",
+    //   active: true,
+    //   children: [
+    //     { path: "/simple-page/first-page", title: "First Page", type: "link" },
+    //     { path: "/simple-page/second-page", title: "Second Page", type: "link" },
+    //   ],
+    // },
+    // { path: "/single-page", icon: "search", title: "Single Page", type: "link", bookmark: true },
     {
       title: "Profile",
       icon: "user",
