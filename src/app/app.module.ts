@@ -37,14 +37,14 @@ import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsWebsocketPluginModule } from '@ngxs/websocket-plugin';
 import { MessagesState } from '@modules/root/store/states/message';
 import { AuthState } from '@modules/root/store/states/auth'
-import { LoginComponent } from '@modules/root/pages/auth/login/login.component';
+import { ProfileState } from '@modules/root/store/states/profile'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -63,7 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    NgxsModule.forRoot([TodoState, NovelsState, MessagesState, AuthState], {
+    NgxsModule.forRoot([TodoState, NovelsState, MessagesState, AuthState, ProfileState], {
       developmentMode: !APP_CONFIG.production,
     }),
     NgxsReduxDevtoolsPluginModule.forRoot({
