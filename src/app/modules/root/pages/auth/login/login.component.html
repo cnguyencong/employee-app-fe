@@ -5,30 +5,92 @@
         <div>
           <div>
             <a class="logo" routerLink="/">
+              <!-- TODO: Adding company logo -->
               <!-- <img class="img-fluid for-light" src="assets/images/common/logoOWT.png" alt="logoOWT" />
               <img class="img-fluid for-dark" src="assets/images/common/logoOWT.png" alt="logoOWT" /> -->
             </a>
           </div>
           <div class="login-main">
-            <form class="theme-form" [formGroup]="loginForm">
+            <form
+              class="theme-form"
+              [formGroup]="loginForm"
+              ngxsForm="auth.login.form"
+              [ngxsFormDebounce]="500"
+              [ngxsFormClearOnDestroy]="true"
+            >
               <h4>Log in</h4>
               <div class="form-group">
                 <label class="col-form-label">Company email</label>
-                <input class="form-control" type="email" required="" placeholder="Enter your email" formControlName="email" />
-                <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required" class="text text-danger mt-1">Email is required</div>
-                <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email" class="text text-danger mt-1">Invalid Email</div>
+                <input
+                  class="form-control"
+                  type="email"
+                  required=""
+                  placeholder="Enter your email"
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    loginForm.controls.email.touched &&
+                    loginForm.controls.email.errors?.required
+                  "
+                  class="text text-danger mt-1"
+                >
+                  Email is required
+                </div>
+                <div
+                  *ngIf="
+                    loginForm.controls.email.touched &&
+                    loginForm.controls.email.errors?.email
+                  "
+                  class="text text-danger mt-1"
+                >
+                  Invalid Email
+                </div>
               </div>
               <div class="form-group">
                 <label class="col-form-label">Password</label>
-                <input class="form-control" [type]="show ? 'text' : 'password'" formControlName="password" required="" placeholder="Enter your password" />
-                <div class="show-hide" (click)="showPassword()" *ngIf="!show"><span class="show"></span></div>
-                <div class="show-hide" (click)="showPassword()" *ngIf="show"><span class="Hide"></span></div>
-                <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required" class="text text-danger mt-1">Password is required</div>
+                <div class="form-password">
+                  <input
+                    class="form-control"
+                    [type]="show ? 'text' : 'password'"
+                    formControlName="password"
+                    required=""
+                    placeholder="Enter your password"
+                  />
+                  <div class="show-hide" (click)="showPassword()" *ngIf="!show">
+                    <span class="show"></span>
+                  </div>
+                  <div class="show-hide" (click)="showPassword()" *ngIf="show">
+                    <span class="Hide"></span>
+                  </div>
+                </div>
+                <div
+                  *ngIf="
+                    loginForm.controls.password.touched &&
+                    loginForm.controls.password.errors?.required
+                  "
+                  class="text text-danger mt-1"
+                >
+                  Password is required
+                </div>
               </div>
               <div class="form-group mb-0">
-                <a [routerLink]="'/authentication/forgot-password'" class="link">Forgot password?</a>
+                <a [routerLink]="'/authentication/forgot-password'" class="link"
+                  >Forgot password?</a
+                >
+                <!-- TODO -->
+                <!-- <div class="alert alert-danger mt-2" role="alert">
+                  A simple danger alert—check it out!
+                </div> -->
                 <div class="text-end mt-3">
-                  <button class="btn btn-primary d-block w-100" [disabled]="!loginForm.valid" (click)="login()" type="button"><span>Log in</span></button>
+                  <button
+                    class="btn btn-primary d-block w-100"
+                    [disabled]="!loginForm.valid"
+                    (click)="login()"
+                    type="button"
+                  >
+                    <span>Log in</span>
+                  </button>
                 </div>
               </div>
             </form>

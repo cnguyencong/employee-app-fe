@@ -291,8 +291,12 @@
       label {
         font-size: $body-font-size;
       }
-      .show-hide {
-        top: 72%;
+      .form-password {
+        position: relative;
+        .show-hide {
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
     }
   }

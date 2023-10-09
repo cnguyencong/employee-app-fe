@@ -24,7 +24,7 @@ export class TodoState {
   constructor(private todoService: TodoService) {}
 
   @Action(TodoAction.Add)
-  todoAdd({ setState, patchState, dispatch }: StateContext<TodoStateModel>, { payload }: TodoActionModel) {
+  todoAdd({ setState, patchState, dispatch }: StateContext<TodoStateModel>, { payload }: TodoAction.Add) {
     patchState({ loading: false })
     return this.todoService.addTodo(payload.todo).pipe(
       tap((data: TodoAddResponse) => {
