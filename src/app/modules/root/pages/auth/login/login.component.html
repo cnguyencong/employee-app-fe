@@ -5,6 +5,7 @@
         <div>
           <div>
             <a class="logo" routerLink="/">
+              <!-- TODO: Adding company logo -->
               <!-- <img class="img-fluid for-light" src="assets/images/common/logoOWT.png" alt="logoOWT" />
               <img class="img-fluid for-dark" src="assets/images/common/logoOWT.png" alt="logoOWT" /> -->
             </a>
@@ -20,9 +21,11 @@
               </div>
               <div class="form-group">
                 <label class="col-form-label">Password</label>
-                <input class="form-control" [type]="show ? 'text' : 'password'" formControlName="password" required="" placeholder="Enter your password" />
-                <div class="show-hide" (click)="showPassword()" *ngIf="!show"><span class="show"></span></div>
-                <div class="show-hide" (click)="showPassword()" *ngIf="show"><span class="Hide"></span></div>
+                <div class="form-password">
+                  <input class="form-control" [type]="show ? 'text' : 'password'" formControlName="password" required="" placeholder="Enter your password" />
+                  <div class="show-hide" (click)="showPassword()" *ngIf="!show"><span class="show"></span></div>
+                  <div class="show-hide" (click)="showPassword()" *ngIf="show"><span class="Hide"></span></div>
+                </div>
                 <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required" class="text text-danger mt-1">Password is required</div>
               </div>
               <div class="form-group mb-0">
