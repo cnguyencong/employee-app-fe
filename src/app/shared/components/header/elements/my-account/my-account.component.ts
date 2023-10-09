@@ -21,6 +21,6 @@ export class MyAccountComponent implements OnInit {
   ngOnInit() {}
 
   logoutFunc() {
-    this.router.navigateByUrl('auth/login');
+    this.router.navigateByUrl('authentication/login');
   }
 }

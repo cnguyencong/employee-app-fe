@@ -96,6 +96,18 @@ export class NavService implements OnDestroy {
       ],
     },
     { path: "/single-page", icon: "search", title: "Single Page", type: "link", bookmark: true },
+    {
+      title: "Profile",
+      icon: "user",
+      type: "sub",
+      badgeType: "light-primary",
+      badgeValue: "2",
+      active: true,
+      children: [
+        { path: "/profile/detail", title: "Profile Detail", type: "link" },
+        { path: "/profile/my-cv", title: "My CV", type: "link" },
+      ],
+    },
   ];
 
   // Array

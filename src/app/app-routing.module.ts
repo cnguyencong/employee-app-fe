@@ -8,7 +8,7 @@ import { startsWith } from '@angular-architects/module-federation-tools';
 import { ContentComponent } from "./shared/components/layout/content/content.component";
 import { FullComponent } from "./shared/components/layout/full/full.component";
 import { full } from "./shared/routes/full.routes";
-import { content } from "./shared/routes/routes";
+import { auth, content } from "./shared/routes/routes";
 
 const routes: Routes = [
   {
@@ -21,6 +21,10 @@ const routes: Routes = [
     component: ContentComponent,
     children: content
 
+  },
+  {
+    path: "",
+    children: auth
   },
   {
     path: "",

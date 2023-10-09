@@ -2111,6 +2111,13 @@
   dependencies:
     tslib "^2.2.0"
 
+"@ngxs/form-plugin@^3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@ngxs/form-plugin/-/form-plugin-3.8.1.tgz#6cc5844cbe5d3266565939d19c12e573fac2ec84"
+  integrity sha512-oXaQVxNx7IjKNTCjOybFzmKfFO8nrsGlhI98bEjNyMqrahpg9HYECa/fuvcsn3Zr/WH9soyUj+v+lLzje8JuCg==
+  dependencies:
+    tslib "^2.2.0"
+
 "@ngxs/logger-plugin@^3.8.1-dev.master-43ab43c":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@ngxs/logger-plugin/-/logger-plugin-3.8.1.tgz#837405f2ab61d5c901a8ccb2617c40c48da4780d"
@@ -2132,10 +2139,31 @@
   dependencies:
     tslib "^2.2.0"
 
+"@ngxs/router-plugin@^3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@ngxs/router-plugin/-/router-plugin-3.8.1.tgz#7abb0d108640c4d89dfcdbe63ac372cb2e33a928"
+  integrity sha512-nxzcScDsZEgAjI1jD6kO/pAdG3rji8AwZK2DWZKCEE87Y7vUnY2q1Ar+AtaUQasqMwtw4ShRMzt1eBf98vEDUg==
+  dependencies:
+    tslib "^2.2.0"
+
+"@ngxs/storage-plugin@^3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@ngxs/storage-plugin/-/storage-plugin-3.8.1.tgz#264b9f6db9ed0c228426f34aefe8bd70bf15bc11"
+  integrity sha512-bMCPuqURMM2LvSdQ9HAI12wT4liB6NaaJvZy8rlixHjFWqjYKvlFUpR0FLxcDmm2TTz2TBFBnoL0wAkyOHAlGA==
+  dependencies:
+    tslib "^2.2.0"
+
 "@ngxs/store@^3.8.1-dev.master-43ab43c":
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.8.1.tgz#dc4b823fc179149c32ac6158149877dda615abd2"
   integrity sha512-nbapLdMx+mtnb57BUWXbD6qYfVICv6Rp2NdoGx1++qDbc44ALC49KbF7rSjyPltlExxharAzoNpzO3JuueCP+A==
+  dependencies:
+    tslib "^2.2.0"
+
+"@ngxs/websocket-plugin@^3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@ngxs/websocket-plugin/-/websocket-plugin-3.8.1.tgz#360b1cd7cf4afc565130700ffa98aec31d4e5692"
+  integrity sha512-KID3A/KfzbniWmhN89yQ0sYrLrF6eaJEx6szq0LNdnVOUUamncU4xN0Pp12qXAkSxAAlzddLxFACSmpzlh1+lQ==
   dependencies:
     tslib "^2.2.0"
 

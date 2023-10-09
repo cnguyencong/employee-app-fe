@@ -1,0 +1,92 @@
+<app-breadcrumb
+  [title]="'Profile Detail'"
+  [items]="['Profile']"
+  [active_item]="'Profile Detail'"
+></app-breadcrumb>
+<div class="container-fluid">
+  <div class="edit-profile">
+    <div class="row">
+      <div class="col-xl-8">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-md-3">First Name:</div>
+              <div class="col-md-3">-</div>
+              <div class="col-md-3">Last Name:</div>
+              <div class="col-md-3">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">Trigram:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">Gender:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">DOB:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">ID No.:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">Company Email*:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">Address:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">University:</div>
+              <div class="col-md-9">-</div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-md-3">Contract Type:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">Role:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">Position:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">Start Date:</div>
+              <div class="col-md-9">-</div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">End Date:</div>
+              <div class="col-md-9">-</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4">
+        <img
+          class="img-fluid rounded avatar d-block mb-5 mx-auto"
+          src="assets/images/profile/avtar-default.png"
+          alt="avatar"
+        />
+        <img
+          class="img-fluid rounded d-block mb-3 mx-auto"
+          src="assets/images/profile/qrcode-default.png"
+          alt="avatar"
+        />
+        <div class="d-flex justify-content-center gap-3 mb-3">
+          <app-feather-icons [icon]="'copy'"></app-feather-icons>
+          <app-feather-icons [icon]="'download'"></app-feather-icons>
+        </div>
+        <button class="btn btn-primary d-block mx-auto">My CV</button>
+      </div>
+    </div>
+  </div>
+</div>
