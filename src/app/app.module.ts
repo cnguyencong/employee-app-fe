@@ -36,13 +36,14 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsWebsocketPluginModule } from '@ngxs/websocket-plugin';
 import { MessagesState } from '@modules/root/store/states/message';
+import { LoginComponent } from '@modules/root/pages/auth/login/login.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent],
   imports: [
     BrowserModule,
     FormsModule,

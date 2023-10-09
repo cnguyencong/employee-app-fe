@@ -32,34 +32,6 @@ const routes: Routes = [
     children: full
   },
   {
-    path: 'auth',
-    component: ContentComponent,
-    loadChildren: () => import('employee-app-auth/Module').then(m => m.AuthModule)
-  },
-  // {
-  //   matcher: startsWith('react'),
-  //   component: WebComponentWrapper,
-  //   data: {
-  //     remoteEntry:
-  //       'http://localhost:3001/remoteEntry.js',
-  //     remoteName: 'employee-app-react',
-  //     elementName: 'employee-app-react',
-  //     exposedModule: './Module',
-  //   } as WebComponentWrapperOptions,
-  // },
-  // {
-  //   matcher: startsWith('vue'),
-  //   component: WebComponentWrapper,
-  //   data: {
-  //     type: 'module',
-  //     remoteEntry:
-  //       'http://localhost:5001/assets/remoteEntry.js',
-  //     remoteName: 'employee-app-vue',
-  //     elementName: 'employee-app-vue',
-  //     exposedModule: './Module',
-  //   } as WebComponentWrapperOptions,
-  // },
-  {
     path: '**',
     component: NotFoundComponent,
   },

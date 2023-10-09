@@ -33,6 +33,9 @@ import { CarouselModule } from "ngx-owl-carousel-o";
 import { SwiperModule } from "swiper/angular";
 import { SwiperComponent } from "./components/header/elements/swiper/swiper.component";
 
+// custom libraries
+import { MyLibModule } from "my-lib";
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -54,8 +57,8 @@ import { SwiperComponent } from "./components/header/elements/swiper/swiper.comp
     SvgIconComponent,
     SwiperComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbModule, DragulaModule.forRoot(), TranslateModule.forRoot(), CarouselModule, SwiperModule],
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, NgbModule, DragulaModule.forRoot(), TranslateModule.forRoot(), CarouselModule, SwiperModule, MyLibModule],
   providers: [NavService, LayoutService, DecimalPipe],
-  exports: [NgbModule, FormsModule, ReactiveFormsModule, TranslateModule, LoaderComponent, BreadcrumbComponent, FeatherIconsComponent, TapToTopComponent, SvgIconComponent, SwiperModule],
+  exports: [NgbModule, FormsModule, ReactiveFormsModule, TranslateModule, LoaderComponent, BreadcrumbComponent, FeatherIconsComponent, TapToTopComponent, SvgIconComponent, SwiperModule, MyLibModule],
 })
 export class SharedModule {}
