@@ -26,5 +26,14 @@ export class TableComponent {
   };
 
   @Output() onFiltering = new EventEmitter<string>();
+  @Output() onLimitChange = new EventEmitter<string>();
+
+  public readonly pageLimitOptions = [
+    {value: 5},
+    {value: 10},
+    {value: 25},
+    {value: 50},
+    {value: 100},
+  ];
 
 }

@@ -1,31 +1,32 @@
-<div class="container-fluid">
-  <div class="row">
-      <div class="col-sm-12">
-          <div class="card">
-              <div class="card-header d-flex justify-content-between">
-                  <h5 *ngIf="tableName">{{tableName}}</h5>
-                  <!-- <div class="card-controls">
-                  </div> -->
-                  <ng-content select=".card-controls"></ng-content>
-              </div>
-              <div class="card-body custom-datatable noscroll">
-                <input *ngIf="filtering?.show" type="text" class="filter-ngx form-control" placeholder="{{filtering?.placeholder}}"
-                  (keypress)="onFiltering.emit($event)" />
-                  <!-- <ngx-datatable
-                      class="bootstrap"
-                      [rows]="rows"
-                      [loadingIndicator]="loadingIndicator"
-                      [columns]="columns"
-                      [columnMode]="columnMode"
-                      [headerHeight]="headerHeight"
-                      [footerHeight]="footerHeight"
-                      [rowHeight]="rowHeight"
-                  >
-                      <ng-content></ng-content>
-                  </ngx-datatable> -->
-              </div>
-          </div>
-      </div>
-  </div>
+<div>
+  <!-- <div class="row">
+    <div class="col-6">
+      <input type="text" class="form-control" placeholder="{{filtering?.placeholder}}"
+      (keypress)="onFiltering.emit($event.target.value)" />
+    </div>
+    <div  class="col-6 text-end">
+      <label for="per-page"> Per Page: </label>
+      <select class="form-control" id="per-page" (change)="onLimitChange.emit($event.target.value)">
+        <option
+          *ngFor="let option of pageLimitOptions"
+          [value]="option.value"
+          [selected]="option.value == currentPageLimit"
+        >
+          {{ option.value }}
+        </option>
+      </select>
+    </div>
+  </div> -->
+  <ngx-datatable
+      class="material"
+      [rows]="rows"
+      [loadingIndicator]="loadingIndicator"
+      [columns]="columns"
+      [columnMode]="columnMode"
+      [headerHeight]="headerHeight"
+      [footerHeight]="footerHeight"
+      [rowHeight]="rowHeight"
+  >
+      <ng-content select=".table-inner-content"></ng-content>
+  </ngx-datatable>
 </div>
-<!-- Container-fluid Ends -->

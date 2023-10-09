@@ -7,6 +7,7 @@ import { DragulaModule } from "ng2-dragula";
 import { TranslateModule } from "@ngx-translate/core";
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from "@danielmoncada/angular-datetime-picker";
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 // Components
 import { BreadcrumbComponent } from "./components/breadcrumb/breadcrumb.component";
 import { FeatherIconsComponent } from "./components/feather-icons/feather-icons.component";
@@ -20,6 +21,7 @@ import { TapToTopComponent } from "./components/tap-to-top/tap-to-top.component"
 import { InputComponent } from "./components/input/input.component";
 import { DateTimePickerComponent } from "./components/date-time-picker/date-time-picker.component";
 import { TableComponent } from './components/table/table.component';
+import { LoadingComponent } from './components/loading/loading.component';
 // Header Elements Components
 import { SearchComponent } from "./components/header/elements/search/search.component";
 import { LanguagesComponent } from "./components/header/elements/languages/languages.component";
@@ -62,7 +64,8 @@ import { SwiperComponent } from "./components/header/elements/swiper/swiper.comp
     InputComponent,
     DateTimePickerComponent,
     DropdownSelectComponent,
-    TableComponent
+    TableComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
@@ -75,7 +78,8 @@ import { SwiperComponent } from "./components/header/elements/swiper/swiper.comp
     SwiperModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
-    NgSelectModule
+    NgSelectModule,
+    NgxDatatableModule
   ],
   providers: [NavService, LayoutService, DecimalPipe],
   exports: [
@@ -95,7 +99,9 @@ import { SwiperComponent } from "./components/header/elements/swiper/swiper.comp
     DropdownSelectComponent,
     TableComponent,
     SvgIconComponent,
-    SwiperModule
+    LoadingComponent,
+    SwiperModule,
+    NgxDatatableModule
   ],
 })
 export class SharedModule { }
