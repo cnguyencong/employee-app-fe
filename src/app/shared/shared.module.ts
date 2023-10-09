@@ -41,6 +41,9 @@ import { CarouselModule } from "ngx-owl-carousel-o";
 import { SwiperModule } from "swiper/angular";
 import { SwiperComponent } from "./components/header/elements/swiper/swiper.component";
 
+// custom libraries
+import { MyLibModule } from "my-lib";
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -79,7 +82,8 @@ import { SwiperComponent } from "./components/header/elements/swiper/swiper.comp
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     NgSelectModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    MyLibModule
   ],
   providers: [NavService, LayoutService, DecimalPipe],
   exports: [
@@ -101,7 +105,8 @@ import { SwiperComponent } from "./components/header/elements/swiper/swiper.comp
     SvgIconComponent,
     LoadingComponent,
     SwiperModule,
-    NgxDatatableModule
-  ],
+    NgxDatatableModule,
+    MyLibModule
+  ]
 })
 export class SharedModule { }

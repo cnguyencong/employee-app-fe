@@ -5,7 +5,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from "@shared/shared.module";
+import { SharedModule } from '@shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
@@ -22,7 +22,6 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
 
 import { OverlayModule } from '@angular/cdk/overlay';
 import { NgxsModule } from '@ngxs/store';
@@ -30,17 +29,20 @@ import { TodoState } from '@modules/root/store/states/todo';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { httpInterceptorProviders } from '@core/services/apis/interceptors';
-
+import { NgxsFormPluginModule } from '@ngxs/form-plugin';
+import { NovelsState } from '@modules/root/store/states/form';
+import { HomeComponent } from '@modules/root/pages/home/home.component';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+import { NgxsWebsocketPluginModule } from '@ngxs/websocket-plugin';
+import { MessagesState } from '@modules/root/store/states/message';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -56,11 +58,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
     }),
-    NgxsModule.forRoot([TodoState], {
-      developmentMode: !APP_CONFIG.production
+    NgxsModule.forRoot([TodoState, NovelsState, MessagesState], {
+      developmentMode: !APP_CONFIG.production,
     }),
     NgxsReduxDevtoolsPluginModule.forRoot({
       disabled: APP_CONFIG.production,
@@ -68,20 +70,27 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgxsLoggerPluginModule.forRoot({
       disabled: APP_CONFIG.production,
     }),
-    
-//     // for HttpClient use:
+    NgxsFormPluginModule.forRoot(),
+    NgxsStoragePluginModule.forRoot({
+      key: 'novels', // for testing purposes
+    }),
+    NgxsRouterPluginModule.forRoot(),
+    NgxsRouterPluginModule.forRoot(),
+    NgxsWebsocketPluginModule.forRoot({
+      url: 'ws://localhost:4200',
+    }),
+    //     // for HttpClient use:
     LoadingBarHttpClientModule,
-//     // for Router use:
+    //     // for Router use:
     LoadingBarRouterModule,
-//     // for Core use:
+    //     // for Core use:
     LoadingBarModule,
   ],
   providers: [
     ...httpInterceptorProviders,
     { provide: APP_CONFIG_TOKEN, useValue: APP_CONFIG },
-    CookieService
+    CookieService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}

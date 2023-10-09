@@ -373,6 +373,10 @@
   }
 }
 
+.card-body, .card-header {
+  color: $theme-font-color;
+}
+
 /**=====================
     03. Card CSS End
 ==========================**/
