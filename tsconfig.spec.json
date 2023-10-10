@@ -14,5 +14,10 @@
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "src/app/modules/react",
+    "src/app/modules/vue",
+    "src/app/modules/auth",
   ]
 }
