@@ -42,7 +42,7 @@ import { SwiperModule } from "swiper/angular";
 import { SwiperComponent } from "./components/header/elements/swiper/swiper.component";
 
 // custom libraries
-import { MyLibModule } from "my-lib";
+// import { MyLibModule } from "my-lib";
 
 @NgModule({
   declarations: [
@@ -83,7 +83,7 @@ import { MyLibModule } from "my-lib";
     OwlNativeDateTimeModule,
     NgSelectModule,
     NgxDatatableModule,
-    MyLibModule
+    // MyLibModule
   ],
   providers: [NavService, LayoutService, DecimalPipe],
   exports: [
