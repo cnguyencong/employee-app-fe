@@ -3,7 +3,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-    - main
+    - develop
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: npm install
+      run: npm install --legacy-peer-deps
 
     - name: Run tests
       run: npm run test -- --watch=false --browsers=ChromeHeadless
