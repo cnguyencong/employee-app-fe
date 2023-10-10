@@ -24,7 +24,7 @@ jobs:
       run: npm run test -- --watch=false --browsers=ChromeHeadless
 
     - name: Build
-      run: npm run build -- --configuration production --base-href https://NovahubTechnology.github.io/owt-employee-app-fe/
+      run: npm run build -- --configuration production --base-href https://cnguyencong.github.io/employee-app-fe/
 
     - name: Deploy
       if: success()
