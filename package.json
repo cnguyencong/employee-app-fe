@@ -10,11 +10,16 @@
     "e2e": "ng e2e",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
     "lint": "eslint --max-warnings=0",
+    "stylelint": "stylelint src/*.scss",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.(ts|html)": [
       "npm run lint",
+      "git add ."
+    ],
+    "*.scss": [
+      "npm run stylelint",
       "git add ."
     ]
   },
@@ -102,6 +107,8 @@
     "ngx-toastr": "^16.0.1",
     "photoswipe": "^5.3.0",
     "rxjs": "~7.8.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard-scss": "^11.0.0",
     "sweetalert2": "^11.4.29",
     "tslib": "^2.3.0",
     "typescipt": "^1.0.0",
