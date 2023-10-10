@@ -20,6 +20,11 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
+    codeCoverageExclude: [
+      "src/app/modules/react",
+      "src/app/modules/vue",
+      "src/app/modules/auth"
+    ],
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,

@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./assets/scss/app.scss";
+@import "./assets/scss/app";
 
 .router-wrapper  {
     position:  relative;
     overflow:  hidden;
     width:  100vw;
-    height:  calc(100%  -  47px);
+    height:  calc(100% - 47px);
     perspective:  1200px;
     transform-style:  preserve-3d;
 }
