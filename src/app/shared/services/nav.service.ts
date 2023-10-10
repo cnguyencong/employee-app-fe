@@ -22,18 +22,18 @@ export interface Menu {
   providedIn: "root",
 })
 export class NavService implements OnDestroy {
-  private unsubscriber: Subject<any> = new Subject();
+  private unsubscriber: Subject<unknown> = new Subject();
   public screenWidth: BehaviorSubject<number> = new BehaviorSubject(window.innerWidth);
 
   // Search Box
-  public search: boolean = false;
+  public search = false;
 
   // Language
-  public language: boolean = false;
+  public language = false;
 
   // Mega Menu
-  public megaMenu: boolean = false;
-  public levelMenu: boolean = false;
+  public megaMenu = false;
+  public levelMenu = false;
   public megaMenuColapse: boolean = window.innerWidth < 1199 ? true : false;
 
   // Collapse Sidebar
@@ -43,26 +43,27 @@ export class NavService implements OnDestroy {
   public horizontal: boolean = window.innerWidth < 991 ? false : true;
 
   // Full screen
-  public fullScreen: boolean = false;
+  public fullScreen = false;
 
   constructor(private router: Router) {
     this.setScreenWidth(window.innerWidth);
     fromEvent(window, "resize")
       .pipe(debounceTime(1000), takeUntil(this.unsubscriber))
-      .subscribe((evt: any) => {
-        this.setScreenWidth(evt.target.innerWidth);
-        if (evt.target.innerWidth < 991) {
+      .subscribe((evt: Event) => {
+        const target = evt.target as Window
+        this.setScreenWidth(target.innerWidth);
+        if (target.innerWidth < 991) {
           this.collapseSidebar = true;
           this.megaMenu = false;
           this.levelMenu = false;
         }
-        if (evt.target.innerWidth < 1199) {
+        if (target.innerWidth < 1199) {
           this.megaMenuColapse = true;
         }
       });
     if (window.innerWidth < 991) {
       // Detect Route change sidebar close
-      this.router.events.subscribe((event) => {
+      this.router.events.subscribe(() => {
         this.collapseSidebar = true;
         this.megaMenu = false;
         this.levelMenu = false;
@@ -83,19 +84,19 @@ export class NavService implements OnDestroy {
     {
       headTitle1: "Pages",
     },
-    {
-      title: "Simple Page",
-      icon: "home",
-      type: "sub",
-      badgeType: "light-primary",
-      badgeValue: "2",
-      active: true,
-      children: [
-        { path: "/simple-page/first-page", title: "First Page", type: "link" },
-        { path: "/simple-page/second-page", title: "Second Page", type: "link" },
-      ],
-    },
-    { path: "/single-page", icon: "search", title: "Single Page", type: "link", bookmark: true },
+    // {
+    //   title: "Simple Page",
+    //   icon: "home",
+    //   type: "sub",
+    //   badgeType: "light-primary",
+    //   badgeValue: "2",
+    //   active: true,
+    //   children: [
+    //     { path: "/simple-page/first-page", title: "First Page", type: "link" },
+    //     { path: "/simple-page/second-page", title: "Second Page", type: "link" },
+    //   ],
+    // },
+    // { path: "/single-page", icon: "search", title: "Single Page", type: "link", bookmark: true },
     {
       title: "Profile",
       icon: "user",

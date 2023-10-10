@@ -1,0 +1,35 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+    - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install --legacy-peer-deps
+
+    - name: Run tests
+      run: npm run test -- --watch=false --browsers=ChromeHeadless
+
+    - name: Build
+      run: npm run build -- --configuration production --base-href https://cnguyencong.github.io/employee-app-fe/
+
+    - name: Deploy
+      if: success()
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: dist/employee-app-fe
+        enable_jekyll: true

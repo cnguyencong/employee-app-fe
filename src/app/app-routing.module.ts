@@ -9,28 +9,29 @@ import { ContentComponent } from "./shared/components/layout/content/content.com
 import { FullComponent } from "./shared/components/layout/full/full.component";
 import { full } from "./shared/routes/full.routes";
 import { auth, content } from "./shared/routes/routes";
+import { NotLoginGuard } from '@core/routes/guards/not-login.guard'
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "simple-page/first-page",
+    redirectTo: "profile/detail",
     pathMatch: "full",
   },
   {
     path: "",
     component: ContentComponent,
     children: content
-
   },
   {
     path: "",
-    children: auth
+    children: auth,
+    canActivate: [NotLoginGuard]
   },
-  {
-    path: "",
-    component: FullComponent,
-    children: full
-  },
+  // {
+  //   path: "",
+  //   component: FullComponent,
+  //   children: full
+  // },
   {
     path: '**',
     component: NotFoundComponent,
