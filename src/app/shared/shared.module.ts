@@ -106,7 +106,7 @@ import { SwiperComponent } from "./components/header/elements/swiper/swiper.comp
     LoadingComponent,
     SwiperModule,
     NgxDatatableModule,
-    MyLibModule
+    // MyLibModule
   ]
 })
 export class SharedModule { }
