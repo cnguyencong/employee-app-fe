@@ -9,7 +9,13 @@
     "test": "ng test",
     "e2e": "ng e2e",
     "run:all": "node node_modules/@angular-architects/module-federation/src/server/mf-dev-server.js",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.(ts|html)": [
+      "eslint --max-warnings=0"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -137,6 +143,7 @@
     "swiper": "^8.4.5",
     "ts-node": "~10.9.1",
     "tslint": "~6.1.0",
-    "typescript": "~5.1.3"
+    "typescript": "~5.1.3",
+    "husky": "^8.0.0"
   }
 }
